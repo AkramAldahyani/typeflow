@@ -6,7 +6,7 @@
 
 A typing practice app that writes every keystroke onto a musical stave, so you can see where you rush, where you hesitate, and when your hands settle into an even pace.
 
-**Live demo:** <!-- Add the hosted link here, e.g. [typeflow.example.com](https://typeflow.example.com) -->
+**Live demo:** https://akramaldahyani.github.io/typeflow/
 
 </div>
 
