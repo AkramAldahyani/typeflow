@@ -1,0 +1,117 @@
+.tt {
+  --tt-size: clamp(1.4rem, 1.1rem + 1.3vw, 2.05rem);
+  --tt-lh: 1.72;
+  position: relative;
+  height: calc(var(--tt-size) * var(--tt-lh) * var(--tt-lines, 3));
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: var(--tt-size);
+  line-height: var(--tt-lh);
+  font-variation-settings: 'opsz' 24;
+  font-weight: 400;
+  letter-spacing: 0.002em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.tt-inner {
+  position: relative;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tt-ch {
+  transition: color 120ms ease;
+}
+.tt-todo {
+  color: var(--untyped);
+}
+.tt-ok {
+  color: var(--ink);
+}
+.tt-err {
+  color: var(--rose);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in oklab, var(--rose) 55%, transparent);
+}
+.tt-err.tt-space {
+  text-decoration: none;
+  background: color-mix(in oklab, var(--rose) 22%, transparent);
+  border-radius: 3px;
+}
+
+.tt-caret {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 2px;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+/* Glide: a quick ease-out between letters. */
+.tt-caret.is-animated {
+  transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1), height 160ms ease, opacity 200ms ease;
+}
+.tt-caret.is-hidden {
+  opacity: 0;
+}
+
+.tt-caret-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--cobalt);
+  transform-origin: center;
+  transition: background-color 180ms ease;
+}
+/* Each keystroke gives the caret a small springy pulse. */
+.tt-pulse-0 {
+  animation: caret-pulse-0 260ms cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.tt-pulse-1 {
+  animation: caret-pulse-1 260ms cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+@keyframes caret-pulse-0 {
+  from {
+    transform: scaleY(1.22) scaleX(1.5);
+  }
+}
+@keyframes caret-pulse-1 {
+  from {
+    transform: scaleY(1.22) scaleX(1.5);
+  }
+}
+/* A slip turns the caret rose until the next correct key. */
+.tt-caret-bar.is-wrong {
+  background: var(--rose);
+}
+/* At rest it breathes rather than blinks. */
+.tt-caret-bar.is-idle {
+  animation: caret-blink 1.15s ease-in-out 500ms infinite;
+}
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  70%,
+  85% {
+    opacity: 0.12;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-inner,
+  .tt-caret.is-animated {
+    transition: none;
+  }
+  .tt-caret-bar {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,81 @@
+:root {
+  /* Day: cool paper, ink, one cobalt voice. */
+  --paper: #eef0f4;
+  --paper-deep: #e4e7ee;
+  --sheet: #f9fafc;
+  --ink: #1c2233;
+  --ink-soft: #3b4359;
+  --graphite: #646c80;
+  --untyped: #7f879a;
+  --line: #dde1e9;
+  --stave: #cdd2dd;
+  --stave-strong: #a9b0bf;
+  --cobalt: #2e47e6;
+  --cobalt-ink: #ffffff;
+  --rose: #d93f53;
+  --wash: #dfe4f8;
+  --sheet-shadow: 0 1px 0 rgba(28, 34, 51, 0.04), 0 1px 2px rgba(28, 34, 51, 0.04), 0 28px 56px -32px rgba(36, 46, 92, 0.32);
+
+  --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale, roughly a perfect fourth. */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: 1.0625rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.625rem;
+  --fs-xl: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+  --fs-2xl: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+  --fs-display: clamp(3rem, 1.4rem + 6.4vw, 7rem);
+
+  --r-sheet: 20px;
+  --r-control: 10px;
+  --r-chip: 7px;
+
+  --gutter: clamp(16px, 4vw, 44px);
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --paper: #121725;
+  --paper-deep: #0e1220;
+  --sheet: #191f30;
+  --ink: #e7eaf3;
+  --ink-soft: #c2c8d7;
+  --graphite: #929ab0;
+  --untyped: #6c748b;
+  --line: #2a3145;
+  --stave: #343c54;
+  --stave-strong: #4f5872;
+  --cobalt: #8b9bff;
+  --cobalt-ink: #10142a;
+  --rose: #ff7083;
+  --wash: #232b4b;
+  --sheet-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #121725;
+    --paper-deep: #0e1220;
+    --sheet: #191f30;
+    --ink: #e7eaf3;
+    --ink-soft: #c2c8d7;
+    --graphite: #929ab0;
+    --untyped: #6c748b;
+    --line: #2a3145;
+    --stave: #343c54;
+    --stave-strong: #4f5872;
+    --cobalt: #8b9bff;
+    --cobalt-ink: #10142a;
+    --rose: #ff7083;
+    --wash: #232b4b;
+    --sheet-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
